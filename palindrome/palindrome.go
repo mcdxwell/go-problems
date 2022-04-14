@@ -8,7 +8,7 @@ type Checker interface {
 
 //func String[T Pal](s T) string { return fmt.Sprintf("%v", s)}
 
-func Check[T Checker](in T) bool {
+func Check[T int | string](in T) bool {
 	s := fmt.Sprintf("%v", in)
 	for i := 0; i < len(s)/2+1; i++ {
 		j := len(s) - i - 1
