@@ -1,6 +1,8 @@
 package palindrome
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Checker interface {
 	int | string
