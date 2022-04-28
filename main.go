@@ -75,7 +75,7 @@ func main() {
 	m := make(map[string]playlist.Playlist)
 
 	m[playlistName] = *myPlaylist
-	playlist.ShowMapVals(m)
+	playlist.DisplayPlaylists(m)
 	secondPlayList := "David's Playlist"
 	mysecPlaylist := playlist.CreatePlaylist(secondPlayList)
 	fmt.Printf("Created playlist: %v\n", secondPlayList)
@@ -90,7 +90,7 @@ func main() {
 	//fmt.Println("Created playlist")
 
 	playlist.AddToLib(mysecPlaylist, m)
-	playlist.ShowMapVals(m)
+	playlist.DisplayPlaylists(m)
 	mysecPlaylist.StartPlaying()
 	fmt.Println(mysecPlaylist.NowPlaying.Name)
 	mysecPlaylist.NextSong()
@@ -110,5 +110,9 @@ func main() {
 	fmt.Println(mysecPlaylist.NowPlaying.Name)
 	mysecPlaylist.PrevSong()
 	fmt.Println(mysecPlaylist.NowPlaying.Name)
+
+	playlist.DeletePlaylists(m, "Random Playlist", "David's Playlist")
+
+	playlist.DisplayPlaylists(m)
 
 }

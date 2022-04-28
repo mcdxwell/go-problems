@@ -91,10 +91,20 @@ func AddToLib(p *Playlist, m map[string]Playlist) {
 	fmt.Printf("Added %v to library\n", p.Name)
 }
 
-func ShowMapVals(givenMap map[string]Playlist) {
-	for _, v := range givenMap {
-		fmt.Println("Playlist count: ", len(givenMap))
+func DisplayPlaylists(m map[string]Playlist) {
+	for _, v := range m {
+		fmt.Println("Playlist count: ", len(m))
 		fmt.Println("Playlist: ", v.Name)
 		v.ShowAllSongs()
+	}
+}
+
+func DeletePlaylists(m map[string]Playlist, playlists ...string) {
+	for _, playlist := range playlists {
+		_, ok := m[playlist]
+		if ok {
+			delete(m, playlist)
+			fmt.Printf("Deleted %v\n", playlist)
+		}
 	}
 }
