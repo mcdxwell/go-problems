@@ -111,6 +111,7 @@ func main() {
 	mysecPlaylist.PrevSong()
 	fmt.Println(mysecPlaylist.NowPlaying.Name)
 
+	playlist.MergeLib(m, m)
 	playlist.DeletePlaylists(m, "Random Playlist", "David's Playlist")
 
 	playlist.DisplayPlaylists(m)

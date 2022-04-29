@@ -108,3 +108,31 @@ func DeletePlaylists(m map[string]Playlist, playlists ...string) {
 		}
 	}
 }
+
+type PlayMap map[string]struct{}
+
+func DeleteWGenerics[K string, V any]() {
+
+}
+
+type T interface {
+	~int | string | struct{}
+}
+
+// ref: https://cs.opensource.google/go/x/exp/+/39d4317d:maps/maps.go;l=77
+func Copy[M ~map[K]V, K comparable, V any](dst, src M) {
+	for k, v := range src {
+		dst[k] = v
+	}
+}
+
+// TODO
+// Merge music libraries (merge maps to create one map with a bunch of linked lists/playlists)
+func MergeLib[M ~map[K]V, K comparable, V any](dst, src M) {
+	Copy(dst, src)
+	fmt.Println(dst)
+	fmt.Println(src)
+}
+
+// TODO
+// Merge music playlists (merge linked lists into 1 linked list, delete copies)
