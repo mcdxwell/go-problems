@@ -136,3 +136,33 @@ func MergeLib[M ~map[K]V, K comparable, V any](dst, src M) {
 
 // TODO
 // Merge music playlists (merge linked lists into 1 linked list, delete copies)
+
+func RemoveDuplicates[M ~map[K]V, K comparable, V any]() {
+
+}
+
+type Remover interface {
+	map[string]any | Playlist
+}
+
+// Remove linked list dupes
+
+func PlaylistDupes(a, b Playlist) Playlist {
+	if a.Start == nil || b.Start == nil {
+		return Playlist{}
+	}
+
+	if a.Start != nil && b.Start == nil {
+		return a
+	}
+
+	if a.Start == nil && b.Start != nil {
+		return b
+	}
+	// Make map
+	// Using the showAllSongs logic, get every song from both Playlists
+	// Put each song in a map if the song does not exist in the map
+	// Get each value from the map and create a new Playlist (linked list) with the values
+
+	return Playlist{}
+}
