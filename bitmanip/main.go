@@ -5,7 +5,7 @@ import (
 	"math/bits"
 )
 
-//Paulo Freire
+// rwxrob -> read Paulo Freire
 const (
 	disconnected = iota
 	connecting
@@ -64,6 +64,45 @@ func flipBits() {
 	fmt.Printf("Len16(%016b) = %d\n", m, bits.Len16(m))
 }
 
+func isEven(n int) bool {
+	if n&1 == 1 {
+		return false
+	}
+	return true
+}
+
+func isEvenTwo(n int) bool {
+	if n&1 != 1 {
+		return true
+	}
+	return false
+}
+
+func powerOfTwo(n int) bool {
+	if n&(n-1) == 0 {
+		return true
+	}
+	return false
+}
+
+// right shift by 2
+func divByTwo(num uint) uint {
+	return num >> 1
+}
+
+func mulByTwo(num uint) uint {
+	return num << 1
+}
+
+func add(a, b int64) int64 {
+	for b != 0 {
+		carry := a & b
+		a = a ^ b
+		b = carry << 1
+	}
+	return a
+}
+
 func main() {
 
 	/* client1 := client{status: connected}
@@ -75,7 +114,7 @@ func main() {
 	client1.status = disconnected
 	fmt.Println(client1.IsConnected())
 	client1.status = connected
-	fmt.Println(client1.IsConnected()) */
+	fmt.Println(client1.IsConnected())
 	fmt.Println(swap(10, 12))
 	fmt.Println(swap(10000, 100))
 	fmt.Println(otherswap(10, 12))
@@ -84,5 +123,12 @@ func main() {
 	var n byte = 0x0F
 	fmt.Println(n)
 	fmt.Println(genericswap(n, n))
-
+	fmt.Println(isEven(15))
+	fmt.Println(mulByTwo(2))
+	fmt.Println(divByTwo(3))
+	fmt.Println(add(3, 9)) */
+	for i := 0; i < 10; i++ {
+		fmt.Printf("%d Is Even: %v\n", i, isEven(i))
+		fmt.Printf("%d Is Even: %v\n", i, isEvenTwo(i))
+	}
 }
